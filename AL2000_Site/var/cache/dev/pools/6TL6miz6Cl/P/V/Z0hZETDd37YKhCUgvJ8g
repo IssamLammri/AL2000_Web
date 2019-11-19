@@ -10,10 +10,10 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     [
         'stdClass' => [
             'targetEntity' => [
-                'App\\Entity\\CarteAbonnement',
+                'App\\Entity\\Genre',
             ],
             'mappedBy' => [
-                'Genres',
+                'Filme',
             ],
         ],
     ],

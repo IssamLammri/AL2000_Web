@@ -70,9 +70,16 @@ class Film
      */
     private $acteur;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="Filme")
+     *
+     */
+    private $Genres;
+
     public function __construct()
     {
         $this->acteur = new ArrayCollection();
+        $this->Genres = new ArrayCollection();
     }
 
     /**
@@ -97,6 +104,32 @@ class Film
         if ($this->acteur->contains($Act)) {
             $this->acteur->removeElement($Act);
             $Act->removeFilm($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenres(): Collection
+    {
+        return $this->Genres;
+    }
+
+    public function addGenres(Genre $Gen): self
+    {
+        if (!$this->Genres->contains($Gen)) {
+            $this->Genres[] = $Gen;
+            $Gen->addFilme($this);
+        }
+        return $this;
+    }
+
+    public function removeGenres(Genre $Gen): self
+    {
+        if ($this->Genres->contains($Gen)) {
+            $this->Genres->removeElement($Gen);
+            $Gen->removeFilm($this);
         }
         return $this;
     }

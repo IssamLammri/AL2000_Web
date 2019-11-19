@@ -38,14 +38,25 @@ class Genre
     private $ageCorrespondant;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", mappedBy="Genres")
+     * @ORM\ManyToMany(targetEntity="App\Entity\CarteAbonnement", mappedBy="Genres")
      *
      */
     private $Carteabonnement;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Film", inversedBy="Genres")
+     *@ORM\JoinTable(name="Filmes_Genre",
+     * joinColumns={@ORM\JoinColumn(name="ID_Genre", referencedColumnName="ID_Genre")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="ID_Film", referencedColumnName="ID_Film")})
+     */
+    private $Filme;
+
+
+
     public function __construct()
     {
         $this->Carteabonnement = new ArrayCollection();
+        $this->Filme = new ArrayCollection();
     }
 
     /**
@@ -70,6 +81,30 @@ class Genre
         if ($this->Carteabonnement->contains($Crt)) {
             $this->Carteabonnement->removeElement($Crt);
             $Crt->removeGenres($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Film[]
+     */
+    public function getFilme(): Collection
+    {
+        return $this->Filme;
+    }
+
+    public function addFilme(Film $Fil): self
+    {
+        if (!$this->Filme->contains($Fil)) {
+            $this->Filme[] = $Fil;
+        }
+        return $this;
+    }
+
+    public function removeFilm(Film $Fil): self
+    {
+        if ($this->Filme->contains($Fil)) {
+            $this->Filme->removeElement($Fil);
         }
         return $this;
     }
