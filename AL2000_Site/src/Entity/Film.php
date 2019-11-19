@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,6 +63,43 @@ class Film
      * @ORM\Column(name="Date_Sortie", type="date", nullable=false)
      */
     private $dateSortie;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", mappedBy="Filme")
+     *
+     */
+    private $acteur;
+
+    public function __construct()
+    {
+        $this->acteur = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Acteur[]
+     */
+    public function getActeur(): Collection
+    {
+        return $this->acteur;
+    }
+
+    public function addActeur(Acteur $Act): self
+    {
+        if (!$this->acteur->contains($Act)) {
+            $this->acteur[] = $Act;
+            $Act->addFilme($this);
+        }
+        return $this;
+    }
+
+    public function removeActeur(Acteur $Act): self
+    {
+        if ($this->acteur->contains($Act)) {
+            $this->acteur->removeElement($Act);
+            $Act->removeFilm($this);
+        }
+        return $this;
+    }
 
     public function getIdFilm(): ?int
     {
