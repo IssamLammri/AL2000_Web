@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,6 +36,43 @@ class Genre
      * @ORM\Column(name="Age_Correspondant", type="integer", nullable=false)
      */
     private $ageCorrespondant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", mappedBy="Genres")
+     *
+     */
+    private $Carteabonnement;
+
+    public function __construct()
+    {
+        $this->Carteabonnement = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|CarteAbonnement[]
+     */
+    public function getCarteAbonnement(): Collection
+    {
+        return $this->Carteabonnement;
+    }
+
+    public function addCarteAbonnement(CarteAbonnement $Crt): self
+    {
+        if (!$this->Carteabonnement->contains($Crt)) {
+            $this->Carteabonnement[] = $Crt;
+            $Crt->addGenres($this);
+        }
+        return $this;
+    }
+
+    public function removeCarteAbonnement(CarteAbonnement $Crt): self
+    {
+        if ($this->Carteabonnement->contains($Crt)) {
+            $this->Carteabonnement->removeElement($Crt);
+            $Crt->removeGenres($this);
+        }
+        return $this;
+    }
 
     public function getIdGenre(): ?int
     {

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,6 +39,44 @@ class CarteAbonnement
      * })
      */
     private $idAbonne;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="CarteAbonnement")
+     *@ORM\JoinTable(name="Interdité_Genre",
+     * joinColumns={@ORM\JoinColumn(name="idCarteAbonnement", referencedColumnName="ID_Carte_Abonne")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="idGenre", referencedColumnName="ID_Genre")})
+     */
+    private $Genres;
+
+    public function __construct()
+    {
+        $this->Genres = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenres(): Collection
+    {
+        return $this->Genres;
+    }
+
+    public function addGenres(Genre $Gen): self
+    {
+        if (!$this->Genres->contains($Gen)) {
+            $this->Genres[] = $Gen;
+        }
+        return $this;
+    }
+
+    public function removeGenres(Genre $Gen): self
+    {
+        if ($this->Genres->contains($Gen)) {
+            $this->Genres->removeElement($Gen);
+        }
+        return $this;
+    }
+
 
     public function getIdCarteAbonne(): ?int
     {

@@ -13,15 +13,15 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     [
         'stdClass' => [
             'targetEntity' => [
-                'App\\Entity\\Film',
+                'App\\Entity\\Genre',
             ],
             'inversedBy' => [
-                'acteur',
+                'CarteAbonnement',
             ],
             'name' => [
-                1 => 'Acteur_Filme',
-                'idActeur',
-                'idFilm',
+                1 => 'Interdité_Genre',
+                'idCarteAbonnement',
+                'idGenre',
             ],
             'joinColumns' => [
                 1 => [
@@ -34,8 +34,8 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                 ],
             ],
             'referencedColumnName' => [
-                2 => 'ID_Acteur',
-                'ID_Film',
+                2 => 'ID_Carte_Abonne',
+                'ID_Genre',
             ],
         ],
     ],

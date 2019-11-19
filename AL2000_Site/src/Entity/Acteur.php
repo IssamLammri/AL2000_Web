@@ -45,7 +45,9 @@ class Acteur
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Film", inversedBy="acteur")
-     *
+     *@ORM\JoinTable(name="Acteur_Filme",
+     * joinColumns={@ORM\JoinColumn(name="idActeur", referencedColumnName="ID_Acteur")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="idFilm", referencedColumnName="ID_Film")})
      */
     private $Filme;
 
