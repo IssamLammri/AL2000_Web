@@ -38,75 +38,34 @@ class Genre
     private $ageCorrespondant;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CarteAbonnement", mappedBy="Genres")
+     * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Film", inversedBy="idGenre")
+     * @ORM\JoinTable(name="filmes_genre",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="ID_Genre", referencedColumnName="ID_Genre")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="ID_Film", referencedColumnName="ID_Film")
+     *   }
+     * )
      */
-    private $Carteabonnement;
+    private $idFilm;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", inversedBy="Genres")
-     *@ORM\JoinTable(name="Filmes_Genre",
-     * joinColumns={@ORM\JoinColumn(name="ID_Genre", referencedColumnName="ID_Genre")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="ID_Film", referencedColumnName="ID_Film")})
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="CarteAbonnement", mappedBy="idgenre")
      */
-    private $Filme;
+    private $idcarteabonnement;
 
-
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->Carteabonnement = new ArrayCollection();
-        $this->Filme = new ArrayCollection();
-    }
-
-    /**
-     * @return Collection|CarteAbonnement[]
-     */
-    public function getCarteAbonnement(): Collection
-    {
-        return $this->Carteabonnement;
-    }
-
-    public function addCarteAbonnement(CarteAbonnement $Crt): self
-    {
-        if (!$this->Carteabonnement->contains($Crt)) {
-            $this->Carteabonnement[] = $Crt;
-            $Crt->addGenres($this);
-        }
-        return $this;
-    }
-
-    public function removeCarteAbonnement(CarteAbonnement $Crt): self
-    {
-        if ($this->Carteabonnement->contains($Crt)) {
-            $this->Carteabonnement->removeElement($Crt);
-            $Crt->removeGenres($this);
-        }
-        return $this;
-    }
-
-    /**
-     * @return Collection|Film[]
-     */
-    public function getFilme(): Collection
-    {
-        return $this->Filme;
-    }
-
-    public function addFilme(Film $Fil): self
-    {
-        if (!$this->Filme->contains($Fil)) {
-            $this->Filme[] = $Fil;
-        }
-        return $this;
-    }
-
-    public function removeFilm(Film $Fil): self
-    {
-        if ($this->Filme->contains($Fil)) {
-            $this->Filme->removeElement($Fil);
-        }
-        return $this;
+        $this->idFilm = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idcarteabonnement = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getIdGenre(): ?int
@@ -138,5 +97,58 @@ class Genre
         return $this;
     }
 
+    /**
+     * @return Collection|Film[]
+     */
+    public function getIdFilm(): Collection
+    {
+        return $this->idFilm;
+    }
+
+    public function addIdFilm(Film $idFilm): self
+    {
+        if (!$this->idFilm->contains($idFilm)) {
+            $this->idFilm[] = $idFilm;
+        }
+
+        return $this;
+    }
+
+    public function removeIdFilm(Film $idFilm): self
+    {
+        if ($this->idFilm->contains($idFilm)) {
+            $this->idFilm->removeElement($idFilm);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CarteAbonnement[]
+     */
+    public function getIdcarteabonnement(): Collection
+    {
+        return $this->idcarteabonnement;
+    }
+
+    public function addIdcarteabonnement(CarteAbonnement $idcarteabonnement): self
+    {
+        if (!$this->idcarteabonnement->contains($idcarteabonnement)) {
+            $this->idcarteabonnement[] = $idcarteabonnement;
+            $idcarteabonnement->addIdgenre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdcarteabonnement(CarteAbonnement $idcarteabonnement): self
+    {
+        if ($this->idcarteabonnement->contains($idcarteabonnement)) {
+            $this->idcarteabonnement->removeElement($idcarteabonnement);
+            $idcarteabonnement->removeIdgenre($this);
+        }
+
+        return $this;
+    }
 
 }

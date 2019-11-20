@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +30,21 @@ class Catalogue
      */
     private $nomCatalogue;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Film", mappedBy="idCatalogue")
+     */
+    private $idFilm;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idFilm = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     public function getIdCatalogue(): ?int
     {
         return $this->idCatalogue;
@@ -45,5 +62,32 @@ class Catalogue
         return $this;
     }
 
+    /**
+     * @return Collection|Film[]
+     */
+    public function getIdFilm(): Collection
+    {
+        return $this->idFilm;
+    }
+
+    public function addIdFilm(Film $idFilm): self
+    {
+        if (!$this->idFilm->contains($idFilm)) {
+            $this->idFilm[] = $idFilm;
+            $idFilm->addIdCatalogue($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdFilm(Film $idFilm): self
+    {
+        if ($this->idFilm->contains($idFilm)) {
+            $this->idFilm->removeElement($idFilm);
+            $idFilm->removeIdCatalogue($this);
+        }
+
+        return $this;
+    }
 
 }

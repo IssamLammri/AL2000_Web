@@ -132,7 +132,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/unins000.exe" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/git-bash.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,6 +165,7 @@
       <updated>1574112476954</updated>
       <workItem from="1574112486413" duration="2351000" />
       <workItem from="1574187201571" duration="13175000" />
+      <workItem from="1574278649265" duration="2513000" />
     </task>
     <servers />
   </component>

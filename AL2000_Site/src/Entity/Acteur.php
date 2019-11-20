@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,42 +45,27 @@ class Acteur
     private $nationalite;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", inversedBy="acteur")
-     *@ORM\JoinTable(name="Acteur_Filme",
-     * joinColumns={@ORM\JoinColumn(name="idActeur", referencedColumnName="ID_Acteur")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="idFilm", referencedColumnName="ID_Film")})
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Film", inversedBy="idacteur")
+     * @ORM\JoinTable(name="acteur_filme",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idActeur", referencedColumnName="ID_Acteur")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idFilm", referencedColumnName="ID_Film")
+     *   }
+     * )
      */
-    private $Filme;
-
-    public function __construct()
-    {
-        $this->Filme = new ArrayCollection();
-    }
+    private $idfilm;
 
     /**
-     * @return Collection|Film[]
+     * Constructor
      */
-    public function getFilme(): Collection
+    public function __construct()
     {
-        return $this->Filme;
+        $this->idfilm = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    public function addFilme(Film $Fil): self
-    {
-        if (!$this->Filme->contains($Fil)) {
-            $this->Filme[] = $Fil;
-        }
-        return $this;
-    }
-
-    public function removeFilm(Film $Fil): self
-    {
-        if ($this->Filme->contains($Fil)) {
-            $this->Filme->removeElement($Fil);
-        }
-        return $this;
-    }
-
 
     public function getIdActeur(): ?int
     {
@@ -122,5 +108,30 @@ class Acteur
         return $this;
     }
 
+    /**
+     * @return Collection|Film[]
+     */
+    public function getIdfilm(): Collection
+    {
+        return $this->idfilm;
+    }
+
+    public function addIdfilm(Film $idfilm): self
+    {
+        if (!$this->idfilm->contains($idfilm)) {
+            $this->idfilm[] = $idfilm;
+        }
+
+        return $this;
+    }
+
+    public function removeIdfilm(Film $idfilm): self
+    {
+        if ($this->idfilm->contains($idfilm)) {
+            $this->idfilm->removeElement($idfilm);
+        }
+
+        return $this;
+    }
 
 }

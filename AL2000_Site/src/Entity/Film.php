@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -65,73 +66,42 @@ class Film
     private $dateSortie;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", mappedBy="Filme")
+     * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Acteur", mappedBy="idfilm")
      */
-    private $acteur;
+    private $idacteur;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="Filme")
+     * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Catalogue", inversedBy="idFilm")
+     * @ORM\JoinTable(name="cataloguefilms",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="ID_Film", referencedColumnName="ID_Film")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="ID_Catalogue", referencedColumnName="ID_Catalogue")
+     *   }
+     * )
      */
-    private $Genres;
+    private $idCatalogue;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Genre", mappedBy="idFilm")
+     */
+    private $idGenre;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->acteur = new ArrayCollection();
-        $this->Genres = new ArrayCollection();
-    }
-
-    /**
-     * @return Collection|Acteur[]
-     */
-    public function getActeur(): Collection
-    {
-        return $this->acteur;
-    }
-
-    public function addActeur(Acteur $Act): self
-    {
-        if (!$this->acteur->contains($Act)) {
-            $this->acteur[] = $Act;
-            $Act->addFilme($this);
-        }
-        return $this;
-    }
-
-    public function removeActeur(Acteur $Act): self
-    {
-        if ($this->acteur->contains($Act)) {
-            $this->acteur->removeElement($Act);
-            $Act->removeFilm($this);
-        }
-        return $this;
-    }
-
-    /**
-     * @return Collection|Genre[]
-     */
-    public function getGenres(): Collection
-    {
-        return $this->Genres;
-    }
-
-    public function addGenres(Genre $Gen): self
-    {
-        if (!$this->Genres->contains($Gen)) {
-            $this->Genres[] = $Gen;
-            $Gen->addFilme($this);
-        }
-        return $this;
-    }
-
-    public function removeGenres(Genre $Gen): self
-    {
-        if ($this->Genres->contains($Gen)) {
-            $this->Genres->removeElement($Gen);
-            $Gen->removeFilm($this);
-        }
-        return $this;
+        $this->idacteur = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idCatalogue = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idGenre = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getIdFilm(): ?int
@@ -211,5 +181,86 @@ class Film
         return $this;
     }
 
+    /**
+     * @return Collection|Acteur[]
+     */
+    public function getIdacteur(): Collection
+    {
+        return $this->idacteur;
+    }
+
+    public function addIdacteur(Acteur $idacteur): self
+    {
+        if (!$this->idacteur->contains($idacteur)) {
+            $this->idacteur[] = $idacteur;
+            $idacteur->addIdfilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdacteur(Acteur $idacteur): self
+    {
+        if ($this->idacteur->contains($idacteur)) {
+            $this->idacteur->removeElement($idacteur);
+            $idacteur->removeIdfilm($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Catalogue[]
+     */
+    public function getIdCatalogue(): Collection
+    {
+        return $this->idCatalogue;
+    }
+
+    public function addIdCatalogue(Catalogue $idCatalogue): self
+    {
+        if (!$this->idCatalogue->contains($idCatalogue)) {
+            $this->idCatalogue[] = $idCatalogue;
+        }
+
+        return $this;
+    }
+
+    public function removeIdCatalogue(Catalogue $idCatalogue): self
+    {
+        if ($this->idCatalogue->contains($idCatalogue)) {
+            $this->idCatalogue->removeElement($idCatalogue);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getIdGenre(): Collection
+    {
+        return $this->idGenre;
+    }
+
+    public function addIdGenre(Genre $idGenre): self
+    {
+        if (!$this->idGenre->contains($idGenre)) {
+            $this->idGenre[] = $idGenre;
+            $idGenre->addIdFilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdGenre(Genre $idGenre): self
+    {
+        if ($this->idGenre->contains($idGenre)) {
+            $this->idGenre->removeElement($idGenre);
+            $idGenre->removeIdFilm($this);
+        }
+
+        return $this;
+    }
 
 }

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,42 +39,27 @@ class CarteAbonnement
     private $idAbonne;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="CarteAbonnement")
-     *@ORM\JoinTable(name="InterditÃ©_Genre",
-     * joinColumns={@ORM\JoinColumn(name="idCarteAbonnement", referencedColumnName="ID_Carte_Abonne")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="idGenre", referencedColumnName="ID_Genre")})
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="idcarteabonnement")
+     * @ORM\JoinTable(name="interditã©_genre",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idCarteAbonnement", referencedColumnName="ID_Carte_Abonne")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idGenre", referencedColumnName="ID_Genre")
+     *   }
+     * )
      */
-    private $Genres;
-
-    public function __construct()
-    {
-        $this->Genres = new ArrayCollection();
-    }
+    private $idgenre;
 
     /**
-     * @return Collection|Genre[]
+     * Constructor
      */
-    public function getGenres(): Collection
+    public function __construct()
     {
-        return $this->Genres;
+        $this->idgenre = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    public function addGenres(Genre $Gen): self
-    {
-        if (!$this->Genres->contains($Gen)) {
-            $this->Genres[] = $Gen;
-        }
-        return $this;
-    }
-
-    public function removeGenres(Genre $Gen): self
-    {
-        if ($this->Genres->contains($Gen)) {
-            $this->Genres->removeElement($Gen);
-        }
-        return $this;
-    }
-
 
     public function getIdCarteAbonne(): ?int
     {
@@ -106,6 +89,5 @@ class CarteAbonnement
 
         return $this;
     }
-
 
 }
