@@ -52,19 +52,23 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        <link rel=\"stylesheet\"   href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
         ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "    </head>
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 8
+        echo "
+    </head>
     <body>
         ";
-        // line 9
-        $this->displayBlock('body', $context, $blocks);
-        // line 10
-        echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 11
+        $this->displayBlock('body', $context, $blocks);
+        // line 20
+        echo "
+        ";
+        // line 21
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 22
         echo "    </body>
 </html>
 ";
@@ -95,7 +99,7 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
 
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,7 +117,7 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
 
     }
 
-    // line 9
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -123,6 +127,18 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 12
+        echo "            <nav class=\"navbar navbar-light bg-light\">
+                <a class=\"navbar-brand\" href=\"#\">
+                    <img src=\"/public/";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/image1.jpg"), "html", null, true);
+        echo "\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">
+                    AL2000
+                </a>
+            </nav>
+
+        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -131,7 +147,7 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
 
     }
 
-    // line 10
+    // line 21
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +172,7 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
 
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  151 => 21,  135 => 14,  131 => 12,  121 => 11,  103 => 7,  84 => 5,  72 => 22,  70 => 21,  67 => 20,  65 => 11,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -166,10 +182,21 @@ class __TwigTemplate_a8b00ba0e111ec2b4780276ab4143bdf42ade197e014aa9642fdea9d97e
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel=\"stylesheet\"   href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
         {% block stylesheets %}{% endblock %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <nav class=\"navbar navbar-light bg-light\">
+                <a class=\"navbar-brand\" href=\"#\">
+                    <img src=\"/public/{{ asset('images/image1.jpg') }}\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">
+                    AL2000
+                </a>
+            </nav>
+
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
