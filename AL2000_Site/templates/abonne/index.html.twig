@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonne index{% endblock %}
+
+{% block body %}
+    <h1>Abonne index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAbonne</th>
+                <th>Password</th>
+                <th>NbLocation</th>
+                <th>DateAbonnement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for abonne in abonnes %}
+            <tr>
+                <td>{{ abonne.idAbonne }}</td>
+                <td>{{ abonne.password }}</td>
+                <td>{{ abonne.nbLocation }}</td>
+                <td>{{ abonne.dateAbonnement ? abonne.dateAbonnement|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('abonne_show', {'idAbonne': abonne.idAbonne}) }}">show</a>
+                    <a href="{{ path('abonne_edit', {'idAbonne': abonne.idAbonne}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('abonne_new') }}">Create new</a>
+{% endblock %}

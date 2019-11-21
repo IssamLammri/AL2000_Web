@@ -15,6 +15,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception::showAction'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception::cssAction'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'abonne_index' => [[], ['_controller' => 'App\\Controller\\AbonneController::index'], [], [['text', '/abonne/']], [], []],
+    'abonne_new' => [[], ['_controller' => 'App\\Controller\\AbonneController::new'], [], [['text', '/abonne/new']], [], []],
+    'abonne_show' => [['idAbonne'], ['_controller' => 'App\\Controller\\AbonneController::show'], [], [['variable', '/', '[^/]++', 'idAbonne', true], ['text', '/abonne']], [], []],
+    'abonne_edit' => [['idAbonne'], ['_controller' => 'App\\Controller\\AbonneController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idAbonne', true], ['text', '/abonne']], [], []],
+    'abonne_delete' => [['idAbonne'], ['_controller' => 'App\\Controller\\AbonneController::delete'], [], [['variable', '/', '[^/]++', 'idAbonne', true], ['text', '/abonne']], [], []],
     'Crud' => [[], ['_controller' => 'App\\Controller\\CRUDController::index'], [], [['text', '/crud']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
 ];

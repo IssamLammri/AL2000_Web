@@ -95,7 +95,7 @@ class __TwigTemplate_cc0fc83a33ee586e650ce90fadb3105c403afed33b298524621633d412e
                 <h1> CRUD </h1>
                 <a class=\"btn btn-outline-dark\" href=\"";
         // line 14
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Crud");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("abonne_index");
         echo "\"> Abonne </a>
                 <a class=\"btn btn-outline-dark\" href=\"";
         // line 15
@@ -209,7 +209,7 @@ class __TwigTemplate_cc0fc83a33ee586e650ce90fadb3105c403afed33b298524621633d412e
     <div class=\"card bg-white text-dark\">
             <div class=\"container\">
                 <h1> CRUD </h1>
-                <a class=\"btn btn-outline-dark\" href=\"{{ path('Crud') }}\"> Abonne </a>
+                <a class=\"btn btn-outline-dark\" href=\"{{ path('abonne_index') }}\"> Abonne </a>
                 <a class=\"btn btn-outline-dark\" href=\"{{ path('Crud') }}\"> Acteur </a>
                 <a class=\"btn btn-outline-dark\" href=\"{{ path('Crud') }}\"> Administrateur </a>
                 <a class=\"btn btn-outline-dark\" href=\"{{ path('Crud') }}\"> AL2000 </a>

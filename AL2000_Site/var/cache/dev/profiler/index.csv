@@ -90,3 +90,14 @@ be0831,::1,GET,http://localhost:8000/,1574335991,,500
 a439fd,::1,GET,http://localhost:8000/crud,1574336639,,200
 a25273,::1,GET,http://localhost:8000/crud,1574336660,,200
 84674a,::1,GET,http://localhost:8000/crud,1574336672,,200
+87e57a,::1,GET,http://localhost:8000/,1574353766,,200
+13a221,::1,GET,http://localhost:8000/favicon.ico,1574353774,73c12c,200
+73c12c,::1,GET,http://localhost:8000/favicon.ico,1574353774,,404
+ed7792,::1,GET,http://localhost:8000/crud,1574353963,,200
+00a54e,::1,GET,http://localhost:8000/,1574354005,,200
+0a2bef,::1,GET,http://localhost:8000/crud,1574354017,,200
+6c429f,::1,GET,http://localhost:8000/crud,1574354021,,200
+b9c330,::1,GET,http://localhost:8000/crud,1574364509,,200
+11211e,::1,GET,http://localhost:8000/crud,1574367902,,200
+51fd28,::1,GET,http://localhost:8000/crud,1574368587,,200
+61d4fa,::1,GET,http://localhost:8000/abonne/,1574368590,,200
