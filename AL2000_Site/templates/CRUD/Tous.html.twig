@@ -1,0 +1,37 @@
+{%extends 'base.html.twig' %}
+
+{% block title 'CRUD AL2000' %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h1> Welcome to AL2000 ADMIN</h1>
+
+    </div>
+    <div class="card bg-white text-dark">
+            <div class="container">
+                <h1> CRUD </h1>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Abonne </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Acteur </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Administrateur </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> AL2000 </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Carte_Abonnement </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Carte Bleu </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Catalogue </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Catalogue Film</a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Client</a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Demande_Film</a>
+
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> DVD </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Employer </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}">Film </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Film Genre </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Genre </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Interdité Genre  </a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Location</a>
+                <a class="btn btn-outline-dark" href="{{ path('Crud') }}"> Technicien  </a>
+
+            </div>
+    </div>
+
+{% endblock %}

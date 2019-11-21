@@ -87,21 +87,32 @@ class __TwigTemplate_4b1d4beaa4037a98f0c990aa0d407da9d7352b0748fce72840a3d366e7f
         // line 6
         echo "
     <div class=\"jumbotron text-center\">
-        <h1> Welcome to FlexUP</h1>
-        <p> Une plateforme de vente de biens et services,
-            couplée à un réseau d'entraide social et solidaire,
-            pour aider les entrepreneurs à se lancer,
-            le tout basé sur un modèle économique innovant, flexible et équitable
+        <h1> Welcome to AL2000</h1>
+        <p> En déployant l’AL2000, CyberVideo cherche (1) à réduire ses coûts et (2) à apporter des
+            services de proximité à ses clients. Pour réussir CyberVideo doit également (3) satisfaire les
+            petits commençants exploitant directement les AL2000 (les opérateurs).
+            1. Les coûts liés aux opérations nominales et à la maintenance de l’AL2000 doivent être
+            minimaux. En particulier :
+            • il faut donner aux opérateurs les moyens de gérer entièrement la location des DVDs et,
+            ainsi, limiter fortement les interventions d’employés CyberVideo.
+            • il faut donner aux abonnés les moyens de gérer eux-mêmes leurs abonnements.
+            2. Les clients doivent percevoir en l’AL2000 l’émergence d’un nouveau service de proximité
+            facile d’usage. Il faut donc :
+            • installer des AL2000 dans des endroits stratégiques où les personnes passent souvent
+            • permettre des modes de paiements divers
+            • permettre des locations rapides (une location ou une restitution ne doit pas dépasser
+            quelques minutes)
+            • fournir des moyens pour favoriser les abonnements et fidéliser les clients
+            3. Les petits commerçants doivent trouver leur intérêt. En particulier :
+            • il faut donner aux opérateurs la possibilité de fixer leurs prix (à partir d’un tarif de
+            base défini par CyberVideo)
+            • il faut donner aux opérateurs des moyens de communiquer avec leurs clients pour
+            gérer le contenu de l’AL2000 et leur politique tarifaire
+            Enfin, CyberVideo se soucie beaucoup de son image de « partenaire privilégié des familles ».
+            Il faut donc mettre en œuvre des mécanismes de protection des mineurs.
         </p>
     </div>
-    <div class=\"card bg-dark text-white\">
-        <img src=\"...\" class=\"card-img\" alt=\"...\">
-        <div class=\"card-img-overlay\">
-            <h5 class=\"card-title\">Card title</h5>
-            <p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class=\"card-text\">Last updated 3 mins ago</p>
-        </div>
-    </div>
+
 
 ";
         
@@ -136,21 +147,32 @@ class __TwigTemplate_4b1d4beaa4037a98f0c990aa0d407da9d7352b0748fce72840a3d366e7f
 {% block body %}
 
     <div class=\"jumbotron text-center\">
-        <h1> Welcome to FlexUP</h1>
-        <p> Une plateforme de vente de biens et services,
-            couplée à un réseau d'entraide social et solidaire,
-            pour aider les entrepreneurs à se lancer,
-            le tout basé sur un modèle économique innovant, flexible et équitable
+        <h1> Welcome to AL2000</h1>
+        <p> En déployant l’AL2000, CyberVideo cherche (1) à réduire ses coûts et (2) à apporter des
+            services de proximité à ses clients. Pour réussir CyberVideo doit également (3) satisfaire les
+            petits commençants exploitant directement les AL2000 (les opérateurs).
+            1. Les coûts liés aux opérations nominales et à la maintenance de l’AL2000 doivent être
+            minimaux. En particulier :
+            • il faut donner aux opérateurs les moyens de gérer entièrement la location des DVDs et,
+            ainsi, limiter fortement les interventions d’employés CyberVideo.
+            • il faut donner aux abonnés les moyens de gérer eux-mêmes leurs abonnements.
+            2. Les clients doivent percevoir en l’AL2000 l’émergence d’un nouveau service de proximité
+            facile d’usage. Il faut donc :
+            • installer des AL2000 dans des endroits stratégiques où les personnes passent souvent
+            • permettre des modes de paiements divers
+            • permettre des locations rapides (une location ou une restitution ne doit pas dépasser
+            quelques minutes)
+            • fournir des moyens pour favoriser les abonnements et fidéliser les clients
+            3. Les petits commerçants doivent trouver leur intérêt. En particulier :
+            • il faut donner aux opérateurs la possibilité de fixer leurs prix (à partir d’un tarif de
+            base défini par CyberVideo)
+            • il faut donner aux opérateurs des moyens de communiquer avec leurs clients pour
+            gérer le contenu de l’AL2000 et leur politique tarifaire
+            Enfin, CyberVideo se soucie beaucoup de son image de « partenaire privilégié des familles ».
+            Il faut donc mettre en œuvre des mécanismes de protection des mineurs.
         </p>
     </div>
-    <div class=\"card bg-dark text-white\">
-        <img src=\"...\" class=\"card-img\" alt=\"...\">
-        <div class=\"card-img-overlay\">
-            <h5 class=\"card-title\">Card title</h5>
-            <p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class=\"card-text\">Last updated 3 mins ago</p>
-        </div>
-    </div>
+
 
 {% endblock %}", "Home/home.html.twig", "E:\\Projet AL2000\\AL2000 Web\\AL2000_Site\\templates\\Home\\Home.html.twig");
     }

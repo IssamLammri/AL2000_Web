@@ -132,7 +132,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/git-bash.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/CRUD" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -140,6 +140,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projet AL2000\AL2000 Web\AL2000_Site\templates\CRUD" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -165,7 +170,8 @@
       <updated>1574112476954</updated>
       <workItem from="1574112486413" duration="2351000" />
       <workItem from="1574187201571" duration="13175000" />
-      <workItem from="1574278649265" duration="4231000" />
+      <workItem from="1574278649265" duration="4386000" />
+      <workItem from="1574333106235" duration="3545000" />
     </task>
     <servers />
   </component>
